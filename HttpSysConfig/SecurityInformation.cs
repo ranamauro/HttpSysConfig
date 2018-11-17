@@ -56,13 +56,14 @@ namespace CodePlex.Tools.HttpSysConfig
         unsafe interface ISecurityInformation
         {
             uint GetAccessRights([In] ref Guid pGuidObjectType, uint dwFlags, out IntPtr ppAccess, out uint pcAccesses, out uint piDefaultAccess);
-            uint GetInheritTypes(out SI_INHERIT_TYPE *ppInheritTypes, out uint pcInheritTypes);
+            // uint GetInheritTypes(out SI_INHERIT_TYPE *ppInheritTypes, out uint pcInheritTypes);
             uint GetObjectInformation(ref SI_OBJECT_INFO pObjectInfo);
             uint GetSecurity(uint RequestedInformation, out IntPtr ppSecurityDescriptor, bool fDefault);
             uint MapGeneric([In] ref Guid pGuidObjectType, out ushort pAceFlags, out uint pMask);
             uint PropertySheetPageCallback(IntPtr hwnd, ushort uMsg, SI_PAGE_TYPE uPage);
             uint SetSecurity(uint SecurityInformation, IntPtr pSecurityDescriptor);
         }
+
         [StructLayout(LayoutKind.Sequential)]
         public struct SI_INHERIT_TYPE
         {
@@ -120,10 +121,10 @@ namespace CodePlex.Tools.HttpSysConfig
                 throw new NotImplementedException();
             }
 
-            public uint GetInheritTypes(out SI_INHERIT_TYPE *ppInheritTypes, out uint pcInheritTypes)
-            {
-                throw new NotImplementedException();
-            }
+            // public uint GetInheritTypes(out SI_INHERIT_TYPE *ppInheritTypes, out uint pcInheritTypes)
+            // {
+            //     throw new NotImplementedException();
+            // }
 
             public uint GetObjectInformation(ref SI_OBJECT_INFO pObjectInfo)
             {
