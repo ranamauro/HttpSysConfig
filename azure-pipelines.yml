@@ -38,7 +38,7 @@ steps:
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    contents: '**/$(BuildConfiguration)/bin/?(*.exe|*.dll|*.pdb)'
+    contents: 'bin/$(BuildConfiguration)/**/?(*.exe|*.dll|*.pdb)'
 
 - task: PublishBuildArtifacts@1
   inputs:
